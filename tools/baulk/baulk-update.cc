@@ -144,14 +144,14 @@ bool ResolveBaulkRev(std::wstring &releasename) {
 
 bool ReleaseIsUpgradableFallback(std::wstring &url, std::wstring &version, std::wstring_view oldver) {
   // https://github.com/baulk/baulk/releases/latest
-  constexpr std::wstring_view latest = L"https://github.com/baulk/baulk/releases/latest";
+  constexpr std::wstring_view latest = L"https://github.com/rdp-studio/baulk/releases/latest";
   bela::error_code ec;
   auto resp = baulk::net::RestGet(latest, ec);
   if (!resp) {
     bela::FPrintF(stderr, L"baulk upgrade get latest: \x1b[31m%s\x1b[0m\n", ec.message);
     return false;
   }
-  constexpr std::string_view urlprefix = "/baulk/baulk/releases/download/";
+  constexpr std::string_view urlprefix = "/rdp-studio/baulk/releases/download/";
   size_t index = 0;
   for (;;) {
     auto pos = resp->body.find(urlprefix, index);
@@ -203,7 +203,7 @@ bool ReleaseIsUpgradable(std::wstring &url, std::wstring &version) {
   auto oldver = bela::StripPrefix(releasename, releaseprefix);
   baulk::DbgPrint(L"detect current version %s", oldver);
   bela::error_code ec;
-  auto resp = baulk::net::RestGet(L"https://api.github.com/repos/baulk/baulk/releases/latest", ec);
+  auto resp = baulk::net::RestGet(L"https://api.github.com/repos/rdp-studio/baulk/releases/latest", ec);
   if (!resp) {
     bela::FPrintF(stderr, L"baulk upgrade self get metadata: \x1b[31m%s\x1b[0m\n", ec.message);
     return false;
