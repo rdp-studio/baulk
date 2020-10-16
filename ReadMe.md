@@ -1,18 +1,15 @@
 # Baulk - Minimal Package Manager for Windows
 
 [![license badge](https://img.shields.io/github/license/baulk/baulk.svg)](LICENSE)
-[![Master Branch Status](https://github.com/baulk/baulk/workflows/CI/badge.svg)](https://github.com/baulk/baulk/actions)
-[![Latest Release Downloads](https://img.shields.io/github/downloads/baulk/baulk/latest/total.svg)](https://github.com/baulk/baulk/releases/latest)
-[![Total Downloads](https://img.shields.io/github/downloads/baulk/baulk/total.svg)](https://github.com/baulk/baulk/releases)
-[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
-
-[简体中文](./ReadMe.zh-CN.md)
+[![Master Branch Status](https://github.com/rdp-studio/baulk/workflows/CI/badge.svg)](https://github.com/rdp-studio/baulk/actions)
+[![Latest Release Downloads](https://img.shields.io/github/downloads/rdp-studio/baulk/latest/total.svg)](https://github.com/rdp-studio/baulk/releases/latest)
+[![Total Downloads](https://img.shields.io/github/downloads/rdp-studio/baulk/total.svg)](https://github.com/rdp-studio/baulk/releases)
 
 A minimalist Windows package manager, installation-free, without modifying system environment variables, easy to use, can be integrated with Windows Terminal, can be added to the right-click menu...
 
 ## Get Started
 
-Download the latest version of Baulk: [https://github.com/baulk/baulk/releases/latest](https://github.com/baulk/baulk/releases/latest), then unzip it to any directory, click `baulkterminal.exe` to run and open the Windows Terminal.
+Download the latest version of Baulk: [https://github.com/rdp-studio/baulk/releases/latest](https://github.com/rdp-studio/baulk/releases/latest), then unzip it to any directory, click `baulkterminal.exe` to run and open the Windows Terminal.
 
 ![](./docs/images/getstarted.png)
 
@@ -104,7 +101,7 @@ The default path of the baulk configuration file is `$ExecutableDir/../config/ba
 
 ### Bucket management
 
-In the bucket configuration file, we need to set `bucket`, which is used to store the source data of the baulk installation software. Buckets currently only support storage on git code hosting platforms, such as Github. To install software using baulk, there must be at least one `bucket`. The default bucket of baulk is [https://github.com/baulk/bucket](https://github.com/baulk/bucket). The bucket configuration is as follows:
+In the bucket configuration file, we need to set `bucket`, which is used to store the source data of the baulk installation software. Buckets currently only support storage on git code hosting platforms, such as Github. To install software using baulk, there must be at least one `bucket`. The default bucket of baulk is [https://github.com/rdp-studio/bualkbucket](https://github.com/rdp-studio/baulkbucket). The bucket configuration is as follows:
 
 **baulk.json**:
 
@@ -129,7 +126,7 @@ To synchronize buckets, you can run the `baulk update` command. This is similar 
 
 ### Package management
 
-baulk uses the bucket to record the download address of the package, the file hash, and the initiator that needs to be created. The default bucket repository is [https://github.com/baulk/bucket](https://github.com/baulk/bucket), of course, you can also create a bucket according to the layout of the `baulk/bucket` repository. Baulk bucket actually draws on Scoop to a certain extent, but baulk does not force the use of file hash verification, but only supports SHA256 during verification It is different from BLAKE3 and Baulk's installation mechanism.
+baulk uses the bucket to record the download address of the package, the file hash, and the initiator that needs to be created. The default bucket repository is [https://github.com/rdp-studio/baulkbucket](https://github.com/rdp-studio/baulkbucket), of course, you can also create a bucket according to the layout of the `baulk/bucket` repository. Baulk bucket actually draws on Scoop to a certain extent, but baulk does not force the use of file hash verification, but only supports SHA256 during verification It is different from BLAKE3 and Baulk's installation mechanism.
 
 The commands for the baulk management package include `install`, `uninstall`, `upgrade`, `freeze` and `unfreeze`, and `list` and `search`. Installing software using baulk is very simple, the command is as follows:
 
@@ -286,11 +283,3 @@ example:
 ## Baulk upgrade
 
 At present, we use the Github Release Latest mechanism to upgrade Baulk itself. When executing Github Actions, when new tags are pushed, Github Actions will automatically create a release version and upload the binary compressed package. In this process, the tag information will be compiled into the baulk program. When running `baulk-update` locally (please note that baulk update is to update the bucket and baulk-update are not the same command), it will check whether the local baulk is in the tag, If it is not built on Github Actions, the next step will not be checked unless the `--force` parameter is set. If it is a tag built on Github Actions, check whether it is consistent with Github Release Latest, inconsistently download the binary of the corresponding platform, and then Update Baulk.
-
-## Article
-
-[《Baulk - 开发一个简单的包管理工具历程》](https://forcemz.net/toolset/2020/07/18/Baulk/)
-
-## Other
-
-<div>Baulk Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
