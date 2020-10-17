@@ -101,7 +101,7 @@ The default path of the baulk configuration file is `$ExecutableDir/../config/ba
 
 ### Bucket management
 
-In the bucket configuration file, we need to set `bucket`, which is used to store the source data of the baulk installation software. Buckets currently only support storage on git code hosting platforms, such as Github. To install software using baulk, there must be at least one `bucket`. The default bucket of baulk is [https://github.com/rdp-studio/bualkbucket](https://github.com/rdp-studio/baulkbucket). The bucket configuration is as follows:
+In the bucket configuration file, we need to set `bucket`, which is used to store the source data of the baulk installation software. Buckets currently only support storage on git code hosting platforms, such as Github. To install software using baulk, there must be at least one `bucket`. The default bucket of baulk is [https://github.com/rdp-studio/bualkbuchet](https://github.com/rdp-studio/bualkbuchet). The bucket configuration is as follows:
 
 **baulk.json**:
 
@@ -111,7 +111,7 @@ In the bucket configuration file, we need to set `bucket`, which is used to stor
         {
             "description": "Baulk default bucket",
             "name": "Baulk",
-            "url": "https://github.com/baulk/bucket",
+            "url": "https://github.com/rdp-studio/bualkbuchet",
             "weights": 100
         }
     ]
@@ -126,7 +126,7 @@ To synchronize buckets, you can run the `baulk update` command. This is similar 
 
 ### Package management
 
-baulk uses the bucket to record the download address of the package, the file hash, and the initiator that needs to be created. The default bucket repository is [https://github.com/rdp-studio/baulkbucket](https://github.com/rdp-studio/baulkbucket), of course, you can also create a bucket according to the layout of the `baulk/bucket` repository. Baulk bucket actually draws on Scoop to a certain extent, but baulk does not force the use of file hash verification, but only supports SHA256 during verification It is different from BLAKE3 and Baulk's installation mechanism.
+baulk uses the bucket to record the download address of the package, the file hash, and the initiator that needs to be created. The default bucket repository is [https://github.com/rdp-studio/bualkbuchet](https://github.com/rdp-studio/bualkbuchet), of course, you can also create a bucket according to the layout of the `rdp-studio/bualkbuchet` repository. Baulk bucket actually draws on Scoop to a certain extent, but baulk does not force the use of file hash verification, but only supports SHA256 during verification It is different from BLAKE3 and Baulk's installation mechanism.
 
 The commands for the baulk management package include `install`, `uninstall`, `upgrade`, `freeze` and `unfreeze`, and `list` and `search`. Installing software using baulk is very simple, the command is as follows:
 
